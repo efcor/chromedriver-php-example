@@ -22,10 +22,10 @@ Download chromedriver binary from
 download comes as a zip containing just the binary file, so you need to unzip it. Name it `chromedriver` and place it in
 the `bin` directory (of the project, not your computer). 
 
-From the directory that chromedriver is in:
+From the project directory, run
 
 ```
-xattr -d com.apple.quarantine chromedriver
+xattr -d com.apple.quarantine bin/chromedriver
 ```
 
 This will keep MacOS from disallowing the program to run.
