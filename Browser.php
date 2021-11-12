@@ -27,10 +27,10 @@ class Browser
 
         return $driverPath;
     }
-    
+
     public function startChrome()
     {
-        $this->process = new Process([$this->getChromeDriverFile(), '--port=4444']);
+        $this->process = new Process([$this->getChromeDriverFile(), '--port=9515']);
 
         $this->process->start();
     }
@@ -48,9 +48,9 @@ class Browser
                 '--headless',
                 '--window-size=' . ($dims ? $dims['width'].','.$this->dims['height'] : $this->defaultDims['width'].','.$this->defaultDims['height'])
             ]);
-    
+
             return RemoteWebDriver::create(
-                'http://localhost:4444', DesiredCapabilities::chrome()->setCapability(
+                'http://localhost:9515', DesiredCapabilities::chrome()->setCapability(
                     ChromeOptions::CAPABILITY, $options
                 )
             );
@@ -101,7 +101,7 @@ class Browser
             }
 
             usleep($interval * 1000);
-        }        
+        }
     }
 
     public function takeScreenshot($window)
