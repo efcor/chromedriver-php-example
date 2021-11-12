@@ -22,6 +22,14 @@ Download chromedriver binary from
 download comes as a zip containing just the binary file, so you need to unzip it. Name it `chromedriver` and place it in
 the `bin` directory (of the project, not your computer). 
 
+From the directory that chromedriver is in:
+
+```
+xattr -d com.apple.quarantine chromedriver
+```
+
+This will keep MacOS from disallowing the program to run.
+
 ### Basic Usage
 
 Browse to whatever url you are serving from, ie `http://chromedriver-php-example.test/`
