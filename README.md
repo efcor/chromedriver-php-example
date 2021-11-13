@@ -88,3 +88,36 @@ You will probably need to kill chrome after the script finishes to prevent runni
 ```
 pkill -9 chrome
 ```
+
+#### How to Add Swap
+
+Here is how to add swap to an Ubuntu 20.04 vm that has no swap:
+
+```
+sudo fallocate -l 2G /swapfile
+
+sudo chmod 600 /swapfile
+
+sudo mkswap /swapfile
+
+sudo swapon /swapfile
+```
+
+Verify the swap area has been enabled
+
+```
+sudo swapon -s
+```
+
+Output:
+
+```
+Filename    Type     Size       Used     Priority
+/swapfile   file     2097148    44088    -1
+```
+
+Add the following line to the `/etc/fstab` file to make the swap file permanent.
+
+```
+/swapfile   none    swap    sw    0   0
+```
