@@ -76,7 +76,7 @@ sudo dpkg -i google-chrome*.deb
 There will be an error here. Run this to fix it
 
 ```
-apt install -y -f
+sudo apt install -y -f
 ```
 
 At this point, follow the instructions under the "Installation" section above.
