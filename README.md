@@ -3,12 +3,17 @@ Example abstraction over the php-webdriver package.
 
 ### Installation
 
-```
-git clone https://github.com/efcor/chromedriver-php-example.git
-```
+Prerequisites:
+- a non-root user with sudo capabilities (see [setup-new-sudo-user.sh](https://gist.github.com/efcor/89012c49206db5bbe9c110ff7a3c2c88))
+- composer package manager (see [install-composer.sh](https://gist.github.com/efcor/3e0f70b91987039ae0464bcd57fad35c))
+
+Clone the project and install the dependencies.
 
 ```
+git clone https://github.com/efcor/chromedriver-php-example.git
+
 cd chromedriver-php-example
+
 composer install
 ```
 
@@ -40,18 +45,25 @@ Use the code in `scrape.php` as a starting point for your own needs!
 
 ### Installing and Using on a Linux Web Server
 
+You must have a non-root user with sudo capabilities. See the "Installation" section above for a link to instructions.
+
 Update apt and your installed packages.
 
 ```
-apt update
-apt -y upgrade
-sudo reboot
+sudo apt update
+
+# if you are on a brand new vm, go ahead and update all the software
+sudo apt -y upgrade
 ```
 
-Install some prerequisite libraries for Chrome
+Install some prerequisite libraries for Chrome, and unzip (for composer later)
 
 ```
-sudo apt install -y libxss1 libappindicator1 libindicator7
+sudo apt install -y libxss1 libappindicator1 libindicator7 unzip
+
+# if your php version doesn't have curl and zip extensions, 
+# install those (replace "8.0" with your version)
+sudo apt install -y php8.0-curl php8.0-zip
 ```
 
 Download and install Chrome
