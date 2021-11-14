@@ -12,24 +12,16 @@ putenv('CHROME_DRIVER_PATH='.realpath($chromedriverFilepath));
 
 $browser = new Browser();
 
-$browser->start();
-
-$browser->visit('https://slashdot.org');
-
-$browser->screenshot();
-
-$browser->type('fhfilter', 'starcraft brood war');
-
-$browser->click('.btn.icon-search');
-
-$browser->waitForElement('#fh-pag-div');
-
-$browser->screenshot();
-
-$browser->visit('https://google.com');
-
-$browser->screenshot();
-
-$browser->stop();
+$browser->start()
+    ->visit('https://google.com')
+    ->visit('https://slashdot.org')
+    ->screenshot()
+    ->type('fhfilter', 'starcraft brood war')
+    ->click('.btn.icon-search')
+    ->waitFor('#fh-pag-div')
+    ->screenshot()
+    ->visit('https://google.com')
+    ->screenshot()
+    ->stop();
 
 echo "Done.\n\n";

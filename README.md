@@ -120,11 +120,3 @@ Add the following line to the `/etc/fstab` file to make the swap file permanent.
 ```
 /swapfile   none    swap    sw    0   0
 ```
-
-### Todo
-
-- $browser->waitForReload()
-- Convenience method to insert jquery to the page
-- Add docblocks throughout Browser.php
-- Make Browser class methods fluent
-- screenshot allow specifying a filename outside screenshots folder if starts with "/" otherwise put in that folder
