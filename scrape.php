@@ -12,30 +12,24 @@ putenv('CHROME_DRIVER_PATH='.realpath($chromedriverFilepath));
 
 $browser = new Browser();
 
-$browser->startChrome();
+$browser->start();
 
-$window = $browser->createWindow();
+$browser->visit('https://slashdot.org');
 
-$browser->visit($window, 'https://slashdot.org');
+$browser->screenshot();
 
-$screenshotPath = $browser->takeScreenshot($window);
+$browser->type('fhfilter', 'starcraft brood war');
 
-echo "Screenshot captured to $screenshotPath\n";
+$browser->click('.btn.icon-search');
 
-$browser->type($window, 'fhfilter', 'starcraft brood war');
+$browser->waitForElement('#fh-pag-div');
 
-$browser->click($window, '.btn.icon-search');
+$browser->screenshot();
 
-$browser->waitForElement($window, '#fh-pag-div');
+$browser->visit('https://google.com');
 
-$screenshotPath2 = $browser->takeScreenshot($window);
+$browser->screenshot();
 
-echo "Second screenshot captured to $screenshotPath2\n";
+$browser->stop();
 
-$browser->visit($window, 'https://clemson.edu');
-
-$screenshotPath3 = $browser->takeScreenshot($window);
-
-echo "Third screenshot captured to $screenshotPath3\n";
-
-$browser->stopChrome();
+echo "Done.\n\n";

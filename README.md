@@ -37,11 +37,10 @@ Simply run the scrape.php script to see a demo.
 php scrape.php
 ```
 
-It may take 10 seconds or so for the script to run. It may take much longer if you are on a low-resource system like a
-vm with only 1Gb RAM. Then, check the project directory's `screenshots` directory to confirm the script worked. You 
-should see a few screenshots of websites.
+It should take less than 10 seconds for the script to run (longer if on a low-resource system). Then, check the 
+`screenshots` directory to confirm the script worked. You should see a few screenshots of websites.
 
-Use the code in `scrape.php` as a starting point for your own needs!
+Use the code in `scrape.php` as a starting point for your own needs! Open Browser.php to view all the available methods.
 
 ### Installing and Using on a Linux Web Server
 
@@ -121,3 +120,11 @@ Add the following line to the `/etc/fstab` file to make the swap file permanent.
 ```
 /swapfile   none    swap    sw    0   0
 ```
+
+### Todo
+
+- $browser->waitForReload()
+- Convenience method to insert jquery to the page
+- Add docblocks throughout Browser.php
+- Make Browser class methods fluent
+- screenshot allow specifying a filename outside screenshots folder if starts with "/" otherwise put in that folder
