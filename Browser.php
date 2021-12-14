@@ -95,11 +95,11 @@ class Browser
      *
      * @return $this
      */
-    public function start()
+    public function start($dims = null)
     {
         $this->startChrome();
 
-        $this->window = $this->createWindow();
+        $this->window = $this->createWindow($dims);
 
         return $this;
     }
@@ -130,7 +130,7 @@ class Browser
             $options = (new ChromeOptions)->addArguments([
                 '--disable-gpu',
                 '--headless',
-                '--window-size=' . ($dims ? $dims['width'].','.$this->dims['height'] : $this->defaultDims['width'].','.$this->defaultDims['height'])
+                '--window-size=' . ($dims ? $dims['width'].','.$dims['height'] : $this->defaultDims['width'].','.$this->defaultDims['height'])
             ]);
 
             return RemoteWebDriver::create(

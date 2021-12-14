@@ -120,3 +120,12 @@ Add the following line to the `/etc/fstab` file to make the swap file permanent.
 ```
 /swapfile   none    swap    sw    0   0
 ```
+
+### Misc
+
+To click on coordinates in the browser window without involving any elements:
+
+```
+(new WebDriverActions($browser->getWindow()))->moveByOffset(563, 407)->perform();
+(new WebDriverActions($browser->getWindow()))->click()->perform();
+```
